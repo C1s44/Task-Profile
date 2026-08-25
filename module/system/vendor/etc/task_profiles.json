@@ -1,7 +1,7 @@
 {
   "Attributes": [
       
-          {
+    {
       "Name": "LowCapacityCPUs",
       "Controller": "cpuset",
       "File": "background/cpus"
@@ -16,6 +16,17 @@
       "Controller": "cpuset",
       "File": "top-app/cpus"
     },
+    {
+      "Name": "AudioAppCapacityCPUs",
+      "Controller": "cpuset",
+      "File": "audio-app/cpus"
+    },
+    {"Name": "Dex2oatCapacityCPUs"
+     "Controller": "cpuset"
+     "File": "Dex2oat/cpus"
+    {"Name: }
+     
+    }
       
       ]
 }
