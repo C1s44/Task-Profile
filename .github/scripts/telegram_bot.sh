@@ -7,7 +7,7 @@ Branch: $BRANCH
 $COMMIT_MESSAGE 
 
 Signed-by: @RamadhanGoon
-Posted-by: @Pagestu_bot
+<Post@Pagestu_bot>
 \`\`\`
 [Commit]($COMMIT_URL)
 [Workflow run]($RUN_URL)
