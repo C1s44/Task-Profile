@@ -13,6 +13,5 @@ The developer shall not be held liable for any damages, losses, or technical dis
         
       </p>
     </td>
-  </tr>
-</table>
+  
 
