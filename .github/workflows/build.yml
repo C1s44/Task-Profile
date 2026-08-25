@@ -1,0 +1,79 @@
+name: Build & Send to Telegram
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set variables
+        id: vars
+        run: |
+          echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+          echo "repo_name=${{ github.event.repository.name }}" >> $GITHUB_OUTPUT
+          echo "version=v1.2" >> $GITHUB_OUTPUT
+          echo "commit_msg=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
+
+      - name: Package into zip
+        run: |
+          OUT="${{ steps.vars.outputs.repo_name }}-${{github.run_number}}-${{ steps.vars.outputs.version }}-${{ steps.vars.outputs.short_sha }}-init.zip"
+          echo "ZIP_NAME=$OUT" >> $GITHUB_ENV
+          zip -r "$OUT" README.md task_profiles.json
+
+      - name: Send to Telegram
+        env:
+          BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          CHAT_ID: ${{ secrets.TELEGRAM_TO }}
+          REPO_NAME: ${{ steps.vars.outputs.repo_name }}
+          BRANCH: ${{ github.ref_name }}
+          COMMIT_MSG: ${{ steps.vars.outputs.commit_msg }}
+          RUN_NUMBER: ${{ github.run_number }}
+          COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          # Escape untuk teks biasa (semua karakter reserved MarkdownV2)
+          escape_md() {
+            printf '%s' "$1" | sed -e 's/[]\[(){}~`>#+=|.!*_-]/\\&/g'
+          }
+
+          # Escape khusus untuk URL di dalam [...](url) â€” hanya ')' dan '\' yang perlu di-escape
+          escape_url() {
+            printf '%s' "$1" | sed -e 's/[)\\]/\\&/g'
+          }
+
+          REPO_ESC=$(escape_md "$REPO_NAME")
+          BRANCH_ESC=$(escape_md "$BRANCH")
+          COMMIT_ESC=$(escape_md "$COMMIT_MSG")
+          COMMIT_URL_ESC=$(escape_url "$COMMIT_URL")
+          RUN_URL_ESC=$(escape_url "$RUN_URL")
+
+          CAPTION="*${REPO_ESC}*
+          Branch: ${BRANCH_ESC}
+          \`#ci_${RUN_NUMBER}\`
+
+          >${COMMIT_ESC} @repo
+
+          [Commit](${COMMIT_URL_ESC}) \| [Workflow run](${RUN_URL_ESC})"
+
+          RESPONSE=$(curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendDocument" \
+            -F chat_id="${CHAT_ID}" \
+            -F document=@"${ZIP_NAME}" \
+            -F caption="${CAPTION}" \
+            -F parse_mode="MarkdownV2")
+          echo "Telegram API response: $RESPONSE"
+
+          OK=$(echo "$RESPONSE" | grep -o '"ok":true' || true)
+          if [ -z "$OK" ]; then
+            echo "::error::Gagal kirim ke Telegram. Cek response di atas."
+            exit 1
+          fi
+          
