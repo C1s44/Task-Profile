@@ -1,1 +1,21 @@
-
+{
+  "Attributes": [
+      
+          {
+      "Name": "LowCapacityCPUs",
+      "Controller": "cpuset",
+      "File": "background/cpus"
+    },
+    {
+      "Name": "HighCapacityCPUs",
+      "Controller": "cpuset",
+      "File": "foreground/cpus"
+    },
+    {
+      "Name": "MaxCapacityCPUs",
+      "Controller": "cpuset",
+      "File": "top-app/cpus"
+    },
+      
+      ]
+}
