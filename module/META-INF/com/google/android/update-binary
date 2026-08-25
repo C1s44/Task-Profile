@@ -1,0 +1,5 @@
+#!/sbin/sh
+exec 0>&1
+SKIPUNZIP=1
+unzip -q -o "$ZIPFILE" -x META-INF/* -d "$MODPATH"
+set_perm_recursive "$MODPATH" 0 0 0755 0644
