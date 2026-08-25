@@ -9,6 +9,8 @@ $COMMIT_MESSAGE
 [Commit]($COMMIT_URL)
 [Workflow run]($RUN_URL)
 "
+thumbnail="$GITHUB_WORKSPACE/website/docs/public/logo.webp"
+
 
 file="$1"
 
