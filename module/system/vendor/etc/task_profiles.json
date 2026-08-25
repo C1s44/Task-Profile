@@ -6,6 +6,11 @@
       "Controller": "cpuset",
       "File": "background/cpus"
     },
+        {
+      "Name": "HighCapacityCPUs",
+      "Controller": "cpuset",
+      "File": "foreground_window/cpus"
+    },
     {
       "Name": "HighCapacityCPUs",
       "Controller": "cpuset",
@@ -21,11 +26,11 @@
       "Controller": "cpuset",
       "File": "audio-app/cpus"
     },
-    {"Name": "Dex2oatCapacityCPUs"
-     "Controller": "cpuset"
-     "File": "Dex2oat/cpus"
-    {"Name: }
-     
+    {
+      "Name": "MemSoftLimit",
+      "Controller": "memory",
+      "File": "memory.soft_limit_in_bytes",
+      "FileV2": "memory.low"
     }
       
       ]
