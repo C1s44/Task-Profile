@@ -33,15 +33,15 @@ jobs:
         cd ./module && zip -r9 ../$zipName * -x *placeholder
     - name: Upload to telegram
       env:
-        CHAT_ID: ${{ secrets.ID_ME }}
-        BOT_TOKEN: ${{ secrets.ID_BOT }}
+        CHAT_ID: ${{ secrets.TELEGRAM_TO }}
+        BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
         COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         COMMIT_URL: ${{ github.event.head_commit.url }}
         BRANCH: ${{ github.ref_name }}
         RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         TITLE: Task Profile
       run: |
-        if [ ! -z "${{ secrets.ID_BOT }}" ]; then
+        if [ ! -z "${{ secrets.TELEGRAM_TOKEN }}" ]; then
           export VERSION=$(git rev-list --count HEAD)
           bash $GITHUB_WORKSPACE/.github/scripts/telegram_bot.sh $GITHUB_WORKSPACE/${{ steps.copyOutVersion.outputs.zipName }}
         fi
