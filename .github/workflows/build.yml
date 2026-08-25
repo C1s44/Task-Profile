@@ -11,6 +11,7 @@ on:
           - 'module/META-INF/com/google/android/**'
           - 'module/system/vendor/etc/**'
           - '.github/scripts**'
+          - 'README.md'
           
 jobs:
   build:
