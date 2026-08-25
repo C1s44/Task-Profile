@@ -27,14 +27,6 @@ jobs:
     - name: Build encore-service JNI
       working-directory: ./src
       run: ndk-build
-    - name: Copy binaries
-      run: |
-        cp ./src/libs/armeabi-v7a/encore-service ./module/libs/armeabi-v7a
-        cp ./src/libs/arm64-v8a/encore-service ./module/libs/arm64-v8a
-        cp LICENSE ./module
-    - name: Compile Gamelist
-      run: |
-        bash ./gamelist_compile.sh
     - name: Copy out version
       id: copyOutVersion
       run: |
