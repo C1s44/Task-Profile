@@ -13,7 +13,7 @@
     </td>
     <table>
         <strong>Penolakan Tanggung Jawab (Disclaimer):
-Pengembang tidak bertanggung jawab atas segala bentuk kerusakan, bootloop, kehilangan data, atau gangguan performa yang mungkin timbul akibat penggunaan, modifikasi, atau integrasi modul ini. Seluruh risiko yang berkaitan dengan pengoperasian dan pemasangan modul ini ditanggung sepenuhnya oleh pengguna.</strong>
+Pengembang tidak bertanggung jawab atas segala bentuk kerusakan, bootloop, kehilangan data, atau gangguan performa yang mungkin timbul akibat penggunaan, modifikasi, atau integrasi modul ini. Seluruh risiko yang berkaitan dengan pengoperasian dan pemasangan modul ini ditanggung sepenuhna oleh pengguna.</strong>
         
 
 
