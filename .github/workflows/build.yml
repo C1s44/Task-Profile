@@ -24,9 +24,7 @@ jobs:
       uses: nttld/setup-ndk@v1
       with:
         ndk-version: r27
-    - name: Build encore-service JNI
-      working-directory: ./src
-      run: ndk-build
+  
     - name: Copy out version
       id: copyOutVersion
       run: |
