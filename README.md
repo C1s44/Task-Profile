@@ -1,7 +1,7 @@
 # Task Profile
 
 
-
+<table>
   <tr>
     <td>
       <img align="left" src="https://github.com/C1s44/Task-Profile/blob/main/patch/website/logo.jpg" alt="profile image">
@@ -12,6 +12,7 @@
       </p>
     </td>
   </tr>
+</table>
 
 <img src=https://github.com/C1s44/Task-Profile/blob/main/patch/website/logo.jpg width="120" height="120" style="border-radius: 50%;">
 
