@@ -8,11 +8,12 @@
     </td>
     <td>
       <p>
+      Modul Magisk ini dikembangkan semata-mata untuk tujuan pembelajaran dan pengembangan diri, khususnya dalam memahami serta mengoptimalkan konfigurasi vendor/etc/task_profiles.json dan powerhint.json pada perangkat Android.
       </p>
     </td>
     <table>
-        <strong>Limitationf Liability
-The developer shall not be held liable for any damages, losses, or technical disruptions, whether direct or indirect, arising from the use, configuration, or integration of this module. All risks associated with the operation and use of this software are assumed entirely by the user.</strong>
+        <strong>Penolakan Tanggung Jawab (Disclaimer):
+Pengembang tidak bertanggung jawab atas segala bentuk kerusakan, bootloop, kehilangan data, atau gangguan performa yang mungkin timbul akibat penggunaan, modifikasi, atau integrasi modul ini. Seluruh risiko yang berkaitan dengan pengoperasian dan pemasangan modul ini ditanggung sepenuhnya oleh pengguna.</strong>
         
 
 
