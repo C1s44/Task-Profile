@@ -4,12 +4,9 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - "**"
-    paths: 
-          - ".github/workflows/build.yml"
-          - "module/system/vendor/etc/**"
-          - "module/META-INF/com/google/android/**"
-    
+      - resetinit
+    paths: -
+          
 jobs:
   build:
     name: Build JNI
