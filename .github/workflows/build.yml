@@ -23,12 +23,10 @@ jobs:
           echo "version=v1.2" >> $GITHUB_OUTPUT
           echo "commit_msg=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
 
-      - name: Package into zip
-        run: |
-          OUT="${{ steps.vars.outputs.repo_name }}-${{github.run_number}}-${{ steps.vars.outputs.version }}-${{ steps.vars.outputs.short_sha }}-init.zip"
-          echo "ZIP_NAME=$OUT" >> $GITHUB_ENV
-          zip -r "$OUT" README.md task_profiles.json
-
+      - name: Compile Flashable Zip
+        id: compileZip
+        run: bash .github/scripts/compile_zip.sh
+        
       - name: Send to Telegram
         env:
           BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
