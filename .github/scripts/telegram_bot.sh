@@ -9,9 +9,6 @@ $COMMIT_MESSAGE
 [Commit]($COMMIT_URL)
 [Workflow run]($RUN_URL)
 "
-thumbnail="$GITHUB_WORKSPACE/logo.jpg"
-
-
 file="$1"
 
 curl -s -F document=@$file "https://api.telegram.org/bot$BOT_TOKEN/sendDocument" \
