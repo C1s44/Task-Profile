@@ -8,17 +8,18 @@ on:
     paths: 
           - '.github/workflows/build.yml'
           - 'patch/website/**'
+          - 'module/META-INF/com/google/android/**'
           
 jobs:
   build:
-    name: Build JNI
+    name: Build Ubuntu
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v7
       with:
         fetch-depth: 0
-    - name: NDK Setup
+    - name: Setup
       uses: nttld/setup-ndk@v1
       with:
         ndk-version: r27
