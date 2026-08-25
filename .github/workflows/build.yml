@@ -12,6 +12,7 @@ on:
           - 'module/system/vendor/etc/**'
           - '.github/scripts**'
           - 'README.md'
+          - 'module/**'
           
 jobs:
   build:
