@@ -1,8 +1,7 @@
-id=AZenith
-name=AZenith火
-version=
-versionCode=
-author=ArchHaven Developers
-description=One, Two, Three! AZenith has arrived!
-updateJson=https://raw.githubusercontent.com/Liliya2727/Antares/main/update.json
-banner=module.banner.avif
+id=taskprofiles
+name=Task Profile 
+version=1.4.2 [N75c5-c79626-main]
+versionCode=10
+author=Ramadhan Pagestu
+description=UI/UX optimization for blossom 
+banner=system/banner.jpg
