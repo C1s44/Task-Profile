@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - resetinit
+      - "**"
     paths: 
           - ".github/workflows/build.yml"
           - "module/system/vendor/etc/**"
