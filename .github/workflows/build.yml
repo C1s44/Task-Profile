@@ -34,11 +34,6 @@ jobs:
         sed -i "s/versionCode=.*/versionCode=$version_code/" ./module/module.prop
         zipName="Task_Profile-$version-$version_code_$gitsha1-init.zip" && echo "zipName=$zipName" >> $GITHUB_OUTPUT
         cd ./module && zip -r9 ../$zipName * -x *placeholder
-    - name: Upload build artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: ${{ steps.copyOutVersion.outputs.zipName }}
-        path: ./
     - name: Upload to telegram
       env:
         CHAT_ID: ${{ secrets.TELEGRAM_TO }}
