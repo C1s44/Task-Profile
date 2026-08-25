@@ -4,7 +4,7 @@
 
   <tr>
     <td>
-      <img align="left" src="https://github.com/al4uu/al4uu/blob/67da73dc4f22ee8a8a6eda0148beab47eed3c945/1733540591249.png?raw=true" alt="profile image">
+      <img align="left" src="https://github.com/C1s44/Task-Profile/blob/main/patch/website/logo.jpg" alt="profile image">
     </td>
     <td>
       <p>
