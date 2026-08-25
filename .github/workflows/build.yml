@@ -7,9 +7,6 @@ on:
       - main
     paths:
       - '.github/workflows/build.yml'
-      - 'module/**'
-      - '.github/scripts/telegram_bot.sh'
-
 jobs:
   build:
     name: Build JNI
