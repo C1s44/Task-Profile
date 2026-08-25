@@ -1,10 +1,10 @@
-name: Build Encore JNI
+name: Build Task profile for blossom
 
 on:
   workflow_dispatch:
   push:
     branches:
-      - '**'
+      - main
     paths:
       - '.github/workflows/build.yml'
       - 'module/**'
