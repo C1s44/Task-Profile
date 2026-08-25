@@ -5,7 +5,9 @@ on:
   push:
     branches:
       - resetinit
-    paths: '.github/workflows/build.yml'
+    paths: 
+          - ".github/workflows/build.yml"
+          -  "module/system/vendor/etc'**"
     
 jobs:
   build:
