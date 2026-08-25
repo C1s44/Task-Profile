@@ -6,6 +6,7 @@ on:
     branches:
       - '**'
     paths: 
+          - '.github/workflows/build.yml'
           - 'patch/website/**'
           - 'module/META-INF/com/google/android/**'
           - 'module/system/vendor/etc/**'
