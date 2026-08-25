@@ -7,7 +7,8 @@ on:
       - resetinit
     paths: 
           - ".github/workflows/build.yml"
-          -  "module/system/vendor/etc'**"
+          - "module/system/vendor/etc/**"
+          - "module/META-INF/com/google/android/**"
     
 jobs:
   build:
