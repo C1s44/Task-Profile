@@ -9,6 +9,7 @@ on:
           - '.github/workflows/build.yml'
           - 'patch/website/**'
           - 'module/META-INF/com/google/android/**'
+          -
           
 jobs:
   build:
