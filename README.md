@@ -14,3 +14,6 @@ The developer shall not be held liable for any damages, losses, or technical dis
     </td>
   </tr>
 </table>
+<h2> </h2>H2> </a>
+  <a href="https://t.me/Logs_Cl"><img src="https://img.shields.io/badge/Telegram-2CA5E?style=social&logo=telegram"></a>
+  <a 
