@@ -32,6 +32,27 @@
       "File": "memory.soft_limit_in_bytes",
       "FileV2": "memory.low"
     }
+    {
+      "Name": "CgroupProcs",
+      "Controller": "cgroup2",
+      "File": "cgroup.procs"
+    }
       
       ]
-}
+      
+      
+        "Profiles": [
+    {
+      "Name": "HighEnergySaving",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "schedtune",
+            "Path": "background"
+          }
+        }
+      ]
+    },
+
