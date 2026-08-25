@@ -32,9 +32,9 @@ jobs:
         version="$(cat version)"
         version_code=$(git rev-list HEAD --count)
         gitsha1=$(git rev-parse --short HEAD)
-        sed -i "s/version=.*/version=$version-$gitsha1-resetinit/" ./module/module.prop
+        sed -i "s/version=.*/version=$version-$gitsha1-main/" ./module/module.prop
         sed -i "s/versionCode=.*/versionCode=$version_code/" ./module/module.prop
-        zipName="Task_Profile-$version-$version_code_$gitsha1-init.zip" && echo "zipName=$zipName" >> $GITHUB_OUTPUT
+        zipName="Task_Profile-$version-$version_code_$gitsha1-main.zip" && echo "zipName=$zipName" >> $GITHUB_OUTPUT
         cd ./module && zip -r9 ../$zipName * -x *placeholder
     - name: Upload to telegram
       env:
