@@ -1,6 +1,7 @@
 #!/bin/env bash
 
 msg="*$TITLE*
+Branch: $BRANCH_ESC
 \\#ci\\_$VERSION
 \`\`\`
 $COMMIT_MESSAGE
