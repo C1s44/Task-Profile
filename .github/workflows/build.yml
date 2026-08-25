@@ -1,0 +1,50 @@
+name: Build Task profile for blossom
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '**'
+    paths:
+      - '.github/workflows/build.yml'
+      - 'module/**'
+      - '.github/scripts/telegram_bot.sh'
+
+jobs:
+  build:
+    name: Build JNI
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v7
+      with:
+        fetch-depth: 0
+    - name: NDK Setup
+      uses: nttld/setup-ndk@v1
+      with:
+        ndk-version: r27
+  
+    - name: Copy out version
+      id: copyOutVersion
+      run: |
+        version="$(cat version)"
+        version_code=$(git rev-list HEAD --count)
+        gitsha1=$(git rev-parse --short HEAD)
+        sed -i "s/version=.*/version=$version-$gitsha1-init/" ./module/module.prop
+        sed -i "s/versionCode=.*/versionCode=$version_code/" ./module/module.prop
+        zipName="Task_Profile-$version-$version_code_$gitsha1-init.zip" && echo "zipName=$zipName" >> $GITHUB_OUTPUT
+        cd ./module && zip -r9 ../$zipName * -x *placeholder
+    - name: Upload to telegram
+      env:
+        CHAT_ID: ${{ secrets.ID_ME }}
+        BOT_TOKEN: ${{ secrets.ID_BOT }}
+        COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        COMMIT_URL: ${{ github.event.head_commit.url }}
+        BRANCH: ${{ github.ref_name }}
+        RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        TITLE: Task Profile
+      run: |
+        if [ ! -z "${{ secrets.ID_BOT }}" ]; then
+          export VERSION=$(git rev-list --count HEAD)
+          bash $GITHUB_WORKSPACE/.github/scripts/telegram_bot.sh $GITHUB_WORKSPACE/${{ steps.copyOutVersion.outputs.zipName }}
+        fi
