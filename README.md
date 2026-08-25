@@ -1,7 +1,7 @@
 # Task Profile
 
 
-
+<table>
   <tr>
     <td>
       <img align="left" src="https://github.com/C1s44/Task-Profile/blob/main/patch/website/logo.jpg" alt="profile image">
