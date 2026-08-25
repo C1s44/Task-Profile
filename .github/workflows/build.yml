@@ -7,9 +7,7 @@ on:
       - main
     paths:
       - '.github/workflows/build.yml'
-      - 'src/**'
       - 'module/**'
-      - 'gamelist.txt'
 
 jobs:
   build:
@@ -33,7 +31,7 @@ jobs:
         gitsha1=$(git rev-parse --short HEAD)
         sed -i "s/version=.*/version=$version-$gitsha1-init/" ./module/module.prop
         sed -i "s/versionCode=.*/versionCode=$version_code/" ./module/module.prop
-        zipName="encore-$version-$version_code_$gitsha1.zip" && echo "zipName=$zipName" >> $GITHUB_OUTPUT
+        zipName="Task_Profile-$version-$version_code_$gitsha1-init.zip" && echo "zipName=$zipName" >> $GITHUB_OUTPUT
         cd ./module && zip -r9 ../$zipName * -x *placeholder
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
