@@ -8,6 +8,7 @@ on:
     paths:
       - '.github/workflows/build.yml'
       - 'module/**'
+      - '.github/scripts/telegram_bot.sh'
 
 jobs:
   build:
