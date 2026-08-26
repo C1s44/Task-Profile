@@ -2,7 +2,7 @@
 
 msg="*$TITLE*
 Branch: $BRANCH
-\\#ci\\_$ci
+\\#ci\\_$version_code
 \`\`\`
 $COMMIT_MESSAGE 
 
