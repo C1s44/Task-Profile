@@ -1,59 +1,146 @@
 {
-    "Attributes": [{
-        "Name": "LowCapacityCPUs",
-        "Controller": "cpuset",
-        "File": "background/cpus"
+  "Attributes": [
+      
+    {
+      "Name": "LowCapacityCPUs",
+      "Controller": "cpuset",
+      "File": "background/cpus"
     },
+    {
+      "Name": "HighCapacityCPUs",
+      "Controller": "cpuset",
+      "File": "foreground_window/cpus"
+    },
+    {
+      "Name": "HighCapacityCPUs",
+      "Controller": "cpuset",
+      "File": "foreground/cpus"
+    },
+    {
+      "Name": "MaxCapacityCPUs",
+      "Controller": "cpuset",
+      "File": "top-app/cpus"
+    },
+    {
+      "Name": "AudioAppCapacityCPUs",
+      "Controller": "cpuset",
+      "File": "audio-app/cpus"
+    },
+    {
+      "Name": "MemSoftLimit",
+      "Controller": "memory",
+      "File": "memory.soft_limit_in_bytes",
+      "FileV2": "memory.low"
+    },
+    {
+      "Name": "CgroupProcs",
+      "Controller": "cgroup2",
+      "File": "cgroup.procs"
+    }
+      
+      ],
+      
+ "Profiles": [
+    {
+      "Name": "HighEnergySaving",
+      "Actions": [
         {
-            "Name": "HighCapacityCPUs",
-            "Controller": "cpuset",
-            "File": "foreground_window/cpus"
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "schedtune",
+            "Path": "background"
+          }
         },
         {
-            "Name": "HighCapacityCPUs",
-            "Controller": "cpuset",
-            "File": "foreground/cpus"
-        },
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "UClampMax",
+            "Value": "10"
+          }
+        }
+      ]
+    },
+       {
+      "Name": "Frozen",
+      "Actions": [
         {
-            "Name": "MaxCapacityCPUs",
-            "Controller": "cpuset",
-            "File": "top-app/cpus"
-        },
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "freezer",
+            "Path": "frozen"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Unfrozen",
+      "Actions": [
         {
-            "Name": "AudioAppCapacityCPUs",
-            "Controller": "cpuset",
-            "File": "audio-app/cpus"
-        },
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "freezer",
+            "Path": ""
+          }
+        }
+      ]
+    },
+    {
+      "Name": "NormalPerformance",
+      "Actions": [
         {
-            "Name": "MemSoftLimit",
-            "Controller": "memory",
-            "File": "memory.soft_limit_in_bytes",
-            "FileV2": "memory.low"
-        },
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "schedtune",
+            "Path": ""
+          }
+        }
+      ]
+    },
+    {
+      "Name": "HighPerformance",
+      "Actions": [
         {
-            "Name": "CgroupProcs",
-            "Controller": "cgroup2",
-            "File": "cgroup.procs"
-        }],
-
-    "Profiles": [{
-        "Name": "HighEnergySaving",
-        "Actions": [{
-            "Name": "JoinCgroup",
-            "Params":
-            {
-                "Controller": "schedtune",
-                "Path": "background"
-            }
-        },
-            {
-                "Name": "SetAttribute",
-                "Params":
-                {
-                    "Name": "UClampMax",
-                    "Value": "10"
-                }
-            }]
-    }]
-
-}
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "schedtune",
+            "Path": "foreground"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "MaxPerformance",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "schedtune",
+            "Path": "top-app"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "RealtimePerformance",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "schedtune",
+            "Path": "rt"
+          }
+        }
+      ]
+    }
+ 
+ 
+ ]
+   }
