@@ -107,6 +107,19 @@
         }
       ]
     },
+       {
+      "Name": "HighIoPriority",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "blkio",
+            "Path": ""
+          }
+        }
+      ]
+    },
     {
       "Name": "TimerSlackHigh",
       "Actions": [
@@ -130,19 +143,6 @@
           }
         }
       ]
-    },
-    {
-      "Name": "RealtimePerformance",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "schedtune",
-            "Path": "rt"
-          }
-        }
-      ]
     }
  ],
   
@@ -154,6 +154,23 @@
     {
       "Name": "SCHED_SP_BACKGROUND",
       "Profiles": [ "HighEnergySaving", "LowIoPriority", "TimerSlackHigh" ]
+    },
+    {
+          "Name": "SCHED_SP_FOREGROUND",
+      "Profiles": [ "HighPerformance", "HighIoPriority", "TimerSlackNormal" ]
+    },
+    {
+      "Name": "SCHED_SP_FOREGROUND_WINDOW",
+      "Profiles": [ "HighPerformanceWI", "HighIoPriority", "TimerSlackNormal" ]
+    },
+    {
+      "Name": "SCHED_SP_TOP_APP",
+      "Profiles": [ "MaxPerformance", "HighIoPriority", "TimerSlackNormal" ]
+    },
+    {
+      "Name": "SCHED_SP_SYSTEM",
+      "Profiles": [ "HighIoPriority", "LowIoPriority", "TimerSlacNormal" ]
     }
   ]
-}
+    
+  }
