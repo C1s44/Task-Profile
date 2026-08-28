@@ -473,11 +473,3 @@
   ]
     
   }
-      "Name": "MemLimit",
-      "Controller": "memory",
-      "File": "memory.limit_in_bytes",
-      "FileV2": "memory.max"
-    },
-    {
-      "Name": "MemSoftLimit",
-      "Controller": 
