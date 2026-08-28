@@ -1,7 +1,7 @@
 {
   "Attributes": [
       
-    {
+   {
       "Name": "LowCapacityCPUs",
       "Controller": "cpuset",
       "File": "background/cpus"
@@ -9,12 +9,12 @@
     {
       "Name": "HighCapacityCPUs",
       "Controller": "cpuset",
-      "File": "foreground_window/cpus"
+      "File": "foreground/cpus"
     },
     {
-      "Name": "HighCapacityCPUs",
+      "Name": "HighCapacityWICPUs",
       "Controller": "cpuset",
-      "File": "foreground/cpus"
+      "File": "foreground_window/cpus"
     },
     {
       "Name": "MaxCapacityCPUs",
@@ -22,9 +22,21 @@
       "File": "top-app/cpus"
     },
     {
-      "Name": "AudioAppCapacityCPUs",
-      "Controller": "cpuset",
-      "File": "audio-app/cpus"
+      "Name": "MemStats",
+      "Controller": "memory",
+      "File": "memory.stat"
+    },
+    {
+      "Name": "MemLimit",
+      "Controller": "memory",
+      "File": "memory.limit_in_bytes",
+      "FileV2": "memory.max"
+    },
+    {
+      "Name": "MemHighLimit",
+      "Controller": "memory",
+      "File": "memory.soft_limit_in_bytes",
+      "FileV2": "memory.high"
     },
     {
       "Name": "MemSoftLimit",
@@ -33,12 +45,43 @@
       "FileV2": "memory.low"
     },
     {
+      "Name": "MemMinLimit",
+      "Controller": "memory",
+      "File": "memory.soft_limit_in_bytes",
+      "FileV2": "memory.min"
+    },
+    {
+      "Name": "MemUsage",
+      "Controller": "memory",
+      "File": "memory.usage_in_bytes"
+    },
+    {
+      "Name": "MemAndSwapUsage",
+      "Controller": "memory",
+      "File": "memory.memsw.usage_in_bytes"
+    },
+    {
+      "Name": "MemPressureLevel",
+      "Controller": "memory",
+      "File": "memory.pressure_level"
+    },
+    {
+      "Name": "MemCgroupEventControl",
+      "Controller": "memory",
+      "File": "cgroup.event_control"
+    },
+    {
+      "Name": "FreezerState",
+      "Controller": "freezer",
+      "File": "cgroup.freeze"
+    },
+    {
       "Name": "CgroupProcs",
       "Controller": "cgroup2",
       "File": "cgroup.procs"
     }
+  ],
       
-      ],
       
  "Profiles": [
     {
@@ -60,7 +103,7 @@
             "Value": "10"
           }
         }
-      ]
+     ]
     },
        {
       "Name": "Frozen",
@@ -96,7 +139,7 @@
           "Params":
           {
             "Controller": "schedtune",
-            "Path": ""
+            "Path": "system"
           }
         }
       ]
@@ -127,6 +170,19 @@
         }
       ]
     },
+   {
+      "Name": "LowIoPriority",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "blkio",
+            "Path": "background"
+          }
+        }
+      ]
+    },
     {
       "Name": "RealtimePerformance",
       "Actions": [
@@ -140,7 +196,16 @@
         }
       ]
     }
- 
- 
- ]
-   }
+ ],
+  
+  "AggregateProfiles": [
+    {
+      "Name": "SCHED_SP_DEFAULT",
+      "Profiles": [ "TimerSlackNormal" ]
+    },
+    {
+      "Name": "SCHED_SP_BACKGROUND",
+      "Profiles": [ "HighEnergySaving", "LowIoPriority", "TimerSlackHigh" ]
+    }
+  ]
+}
