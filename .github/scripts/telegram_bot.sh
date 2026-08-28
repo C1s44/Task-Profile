@@ -5,8 +5,6 @@ Branch: $BRANCH
 \\#ci\\_$VERSION
 \`\`\`
 $COMMIT_MESSAGE 
-
-Signed-by: @RamadhanGoon 
 \`\`\`
 [Commit]($COMMIT_URL)
 [Workflow run]($RUN_URL)
