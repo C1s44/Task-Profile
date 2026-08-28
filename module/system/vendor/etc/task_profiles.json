@@ -22,18 +22,11 @@
       "File": "top-app/cpus"
     },
     {
-      "Name": "MemLimit",
-      "Controller": "memory",
-      "File": "memory.limit_in_bytes",
-      "FileV2": "memory.max"
-    },
-    {
-      "Name": "MemSoftLimit",
-      "Controller": "memory",
+      "name": "memory",
       "File": "memory.soft_limit_in_bytes",
       "FileV2": "memory.low"
     },
-        {
+    {
       "Name": "MemSwappiness",
       "Controller": "memory",
       "File": "memory.swap.max"
@@ -480,3 +473,11 @@
   ]
     
   }
+      "Name": "MemLimit",
+      "Controller": "memory",
+      "File": "memory.limit_in_bytes",
+      "FileV2": "memory.max"
+    },
+    {
+      "Name": "MemSoftLimit",
+      "Controller": 
