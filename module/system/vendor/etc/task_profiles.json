@@ -178,7 +178,7 @@
           "Name": "JoinCgroup",
           "Params":
           {
-            "Controller": "cpuset",
+            "Controller": "schedtune",
             "Path": "application"
           }
         }
@@ -191,7 +191,7 @@
           "Name": "JoinCgroup",
           "Params":
           {
-            "Controller": "cpuset",
+            "Controller": "schedtune",
             "Path": "application/performance"
           }
         }
@@ -347,7 +347,7 @@
           "Params":
           {
             "Name": "MemSwappiness",
-            "Value": "80"
+            "Value": "100"
           }
         }
       ]
@@ -368,7 +368,20 @@
           "Params":
           {
             "Name": "MemSwappiness",
-            "Value": "120"
+            "Value": "100"
+          }
+        }
+      ]
+    },
+       {
+      "Name": "Dex2oatPerformance",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "cpuset",
+            "Path": "dex2oat"
           }
         }
       ]
@@ -380,7 +393,7 @@
           "Name": "SetTimerSlack",
           "Params":
           {
-            "Slack": "200000000"
+            "Slack": "300000000"
           }
         }
       ]
@@ -469,6 +482,14 @@
     {
       "Name": "CPUSET_SP_FOREGROUND_WINDOW",
       "Profiles": [ "HighPerformanceWI", "ProcessCapacityHighWI", "HighIoPriority", "TimerSlackNormal" ]
+    },
+    {
+      "Name": "Dex2OatBootComplete",
+      "Profiles": [ "Dex2oatPerformance", "LowIoPriority", "TimerSlackHigh" ]
+    },
+    {
+      "Name": "OtaProfiles",
+      "Profiles": [ "ServiceCapacityLow", "LowIoPriority", "HighEnergySaving" ]
     }
   ]
     
