@@ -31,7 +31,7 @@ jobs:
     - name: Copy out version
       id: copyOutVersion
       run: |
-        version="${version%-main}-release"
+        version="${version%-release}-release"
         echo "$version"
         version_code=$(git rev-list HEAD --count)
         gitsha1=$(git rev-parse --short HEAD)
