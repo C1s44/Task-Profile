@@ -12,6 +12,7 @@ on:
           - '.github/scripts**'
           - 'README.md'
           - 'module/**'
+          - 'version'
           
           
 jobs:
