@@ -36,7 +36,7 @@ jobs:
         gitsha1=$(git rev-parse --short HEAD)
         sed -i "s/version=.*/version=$version-$gitsha1-release/" ./module/module.prop
         sed -i "s/versionCode=.*/versionCode=$version_code/" ./module/module.prop
-        zipName="TaskProfileさ-Utils-$version-$version_code_$gitsha1-release.zip" && echo "zipName=$zipName" >> $GITHUB_OUTPUT
+        zipName="TaskProfileさ-Utils-$version-$version_code_$gitsha1-main.zip" && echo "zipName=$zipName" >> $GITHUB_OUTPUT
         cd ./module && zip -r9 ../$zipName * -x *placeholder
     - name: Upload to telegram
       env:
@@ -46,7 +46,7 @@ jobs:
         COMMIT_URL: ${{ github.event.head_commit.url }}
         BRANCH: ${{ github.ref_name }}
         RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        TITLE: Task Profile
+        TITLE: TaskProfileさ Utils
       run: |
         if [ ! -z "${{ secrets.TELEGRAM_TOKEN }}" ]; then
           export VERSION=$(git rev-list --count HEAD)
