@@ -1,4 +1,4 @@
-name: Build Task profile for blossom
+name: Build TaskProfile
 
 on:
   workflow_dispatch:
