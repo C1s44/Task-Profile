@@ -31,12 +31,12 @@ jobs:
     - name: Copy out version
       id: copyOutVersion
       run: |
-        version="$(cat version)"
+        version="$version-$version_code_$gitsha1-release"
         version_code=$(git rev-list HEAD --count)
         gitsha1=$(git rev-parse --short HEAD)
         sed -i "s/version=.*/version=$version-$gitsha1-main/" ./module/module.prop
         sed -i "s/versionCode=.*/versionCode=$version_code/" ./module/module.prop
-        zipName="Task_Profile-$version-$version_code_$gitsha1-Release.zip" && echo "zipName=$zipName" >> $GITHUB_OUTPUT
+        zipName="Task_Profile-$version-$version_code_$gitsha1-release.zip" && echo "zipName=$zipName" >> $GITHUB_OUTPUT
         cd ./module && zip -r9 ../$zipName * -x *placeholder
     - name: Upload to telegram
       env:
