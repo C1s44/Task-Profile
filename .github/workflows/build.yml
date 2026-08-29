@@ -1,4 +1,4 @@
-name: Build TaskProfile
+name: Build TaskProfile utils
 
 on:
   workflow_dispatch:
