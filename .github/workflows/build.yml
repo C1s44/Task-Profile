@@ -46,7 +46,7 @@ jobs:
         COMMIT_URL: ${{ github.event.head_commit.url }}
         BRANCH: ${{ github.ref_name }}
         RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        TITLE: TaskProfileさ Utils
+        TITLE: Task Profile
       run: |
         if [ ! -z "${{ secrets.TELEGRAM_TOKEN }}" ]; then
           export VERSION=$(git rev-list --count HEAD)
