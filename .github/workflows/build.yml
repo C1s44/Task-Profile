@@ -32,6 +32,8 @@ jobs:
       id: copyOutVersion
       run: |
         version="$(cat version)"
+        version="${version%-main}-release"
+        echo "$version"
         version_code=$(git rev-list HEAD --count)
         gitsha1=$(git rev-parse --short HEAD)
         sed -i "s/version=.*/version=$version-$gitsha1-main/" ./module/module.prop
