@@ -197,8 +197,20 @@
         }
       ]
     },
-
-   {
+       {
+      "Name": "ServicePerformance",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "cpu",
+            "Path": "system-background"
+          }
+        }
+      ]
+    },
+    {
       "Name": "ProcessCapacityLow",
       "Actions": [
         {
@@ -393,7 +405,7 @@
           "Name": "SetTimerSlack",
           "Params":
           {
-            "Slack": "100000000"
+            "Slack": "600000000"
           }
         }
       ]
@@ -435,11 +447,11 @@
     },
     {
       "Name": "SCHED_SP_SYSTEM",
-      "Profiles": [ "HighIoPriority", "LowIoPriority", "TimerSlacNormal" ]
+      "Profiles": [ "ServicePerformance", "lowIoPriority", "LowIoPriority", "TimerSlacNormal" ]
     },
     {
       "Name": "SCHED_SP_RT_APP",
-      "Profiles": [ "RealtimePerformance", "MaxIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "RealtimePerformance", "highIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "CPUSET_SP_DEFAULT",
@@ -455,7 +467,7 @@
     },
     {
       "Name": "CPUSET_SP_FOREGROUND_WINDOW",
-      "Profiles": [ "HighPerformanceWI", "ProcessCapacityHighWI", "HighIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "HighPerformanceWI", "ProcessCapacityHighWI", "lowIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "Dex2OatBootComplete",
