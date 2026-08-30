@@ -7,10 +7,12 @@ on:
       - '**'
     paths: 
           - '.github/workflows/build.yml'
+          - 'module/META-INF/com/google/android/**'
           - 'module/system/vendor/etc/**'
           - '.github/scripts**'
           - 'README.md'
           - 'module/**'
+          - 'version'
           
           
 jobs:
@@ -51,4 +53,3 @@ jobs:
           export VERSION=$(git rev-list --count HEAD)
           bash $GITHUB_WORKSPACE/.github/scripts/telegram_bot.sh $GITHUB_WORKSPACE/${{ steps.copyOutVersion.outputs.zipName }}
         fi
-        
