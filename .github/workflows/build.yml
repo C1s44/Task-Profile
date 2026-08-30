@@ -7,7 +7,6 @@ on:
       - '**'
     paths: 
           - '.github/workflows/build.yml'
-          - 'module/META-INF/com/google/android/**'
           - 'module/system/vendor/etc/**'
           - '.github/scripts**'
           - 'README.md'
