@@ -53,3 +53,4 @@ jobs:
           export VERSION=$(git rev-list --count HEAD)
           bash $GITHUB_WORKSPACE/.github/scripts/telegram_bot.sh $GITHUB_WORKSPACE/${{ steps.copyOutVersion.outputs.zipName }}
         fi
+        
