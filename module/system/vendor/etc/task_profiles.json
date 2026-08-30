@@ -79,6 +79,19 @@
         }
       ]
     },
+   {
+      "Name": "HighPerformanceWI",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "schedtune",
+            "Path": "foreground_window"
+          }
+        }
+      ]
+    },
     {
       "Name": "MaxPerformance",
       "Actions": [
@@ -204,7 +217,7 @@
           "Name": "JoinCgroup",
           "Params":
           {
-            "Controller": "cpu",
+            "Controller": "cpuset",
             "Path": "system-background"
           }
         }
@@ -447,7 +460,7 @@
     },
     {
       "Name": "SCHED_SP_SYSTEM",
-      "Profiles": [ "ServicePerformance", "lowIoPriority", "LowIoPriority", "TimerSlacNormal" ]
+      "Profiles": [ "ServicePerformance", "LowIoPriority", "TimerSlacNormal" ]
     },
     {
       "Name": "SCHED_SP_RT_APP",
