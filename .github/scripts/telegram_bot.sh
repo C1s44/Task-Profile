@@ -9,7 +9,7 @@ $COMMIT_MESSAGE
 [Commit]($COMMIT_URL)
 [Workflow run]($RUN_URL)
 "
-thumbnail="$GITHUB_WORKSPACE/patch/website/webo.jpg"
+thumbnail="$GITHUB_WORKSPACE/patch/website/webo.jpg
 
 file="$1"
 
