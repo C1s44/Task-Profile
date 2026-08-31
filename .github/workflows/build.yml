@@ -14,27 +14,17 @@ on:
 
 jobs:
   build:
-    name: Build Flashable Zip
+    name: Build JNI
     runs-on: ubuntu-latest
     steps:
-- name: Upload build artifact
-      uses: actions/upload-artifact@v4
+    - name: Checkout
+      uses: actions/checkout@v7
       with:
-      
+        fetch-depth: 0
     - name: NDK Setup
       uses: nttld/setup-ndk@v1
       with:
-        ndk-version: r27b
-    - name: Build Encore JNI
-      working-directory: ./src
-      run: ndk-build
-    - name: Build WebUI
-      working-directory: ./src/webui
-      run: |
-        npm install
-        npm run tailwind
-        npm run build
-        cp ./dist/* ../../module/webroot
+        ndk-version: r27
     - name: Upload to telegram
       env:
         CHAT_ID: ${{ secrets.TELEGRAM_TO }}
