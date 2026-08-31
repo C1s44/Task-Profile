@@ -14,16 +14,17 @@ on:
 
 jobs:
   build:
-    name: Ubuntu latest
+    name: Build Ubuntu
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4
+    - name: Check
+      uses: actions/checkout@v6.0.2
       with:
+        fetch-depth: 0
+    - name: Setup NDK
+      uses: nttld/setup-ndk@v1
+      with:
+        ndk-version: r27
     - name: Upload to telegram
       env:
         CHAT_ID: ${{ secrets.TELEGRAM_TO }}
