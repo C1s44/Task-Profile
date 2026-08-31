@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: upload
-      uses: actions/checkout@v7
+      uses: actions/checkout@v6.0.2
       with:
         fetch-depth: 0
     - name: Setup NDK
