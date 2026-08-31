@@ -24,21 +24,6 @@ jobs:
       uses: actions/checkout@v6.0.2
       with:
         fetch-depth: 0
-    - name: Setup NDK
-      uses: nttld/setup-ndk@v1
-      with:
-        ndk-version: r27
-  
-    - name: Copy out version
-      id: copyOutVersion
-      run: |
-        version="$(cat version)"
-        version_code=$(git rev-list HEAD --count)
-        gitsha1=$(git rev-parse --short HEAD)
-        sed -i "s/version=.*/version=$version-$gitsha1-release/" ./module/module.prop
-        sed -i "s/versionCode=.*/versionCode=$version_code/" ./module/module.prop
-        zipName="TaskProfile utils-$version-$version_code_$gitsha1-release.zip" && echo "zipName=$zipName" >> $GITHUB_OUTPUT
-        cd ./module && zip -r9 ../$zipName * -x *placeholder
     - name: Upload to telegram
       env:
         CHAT_ID: ${{ secrets.TELEGRAM_TO }}
