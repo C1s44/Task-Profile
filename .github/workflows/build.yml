@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/build.yml'
+      - '.github/workflows/**'
       - 'src/**'
       - 'share/**'
       - 'dpkg-conf/**'
