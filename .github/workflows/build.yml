@@ -24,9 +24,6 @@ jobs:
       uses: nttld/setup-ndk@v1
       with:
         ndk-version: r27
-    - name: Build taks
-      working-directory: ./src
-      run: ndk-build
     - name: Copy out version
       id: copyOutVersion
       run: |
@@ -49,7 +46,7 @@ jobs:
         COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         COMMIT_URL: ${{ github.event.head_commit.url }}
         RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        TITLE: Encore Tweaks
+        TITLE: Task Profile
       run: |
         if [ ! -z "${{ secrets.TELEGRAM_TOKEN }}" ]; then
           export VERSION=$(git rev-list --count HEAD)
