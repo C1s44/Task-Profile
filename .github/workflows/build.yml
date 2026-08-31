@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/build.yml'
+      - '.github/workflows/**'
       - 'src/**'
       - 'module/**'
       - 'gamelist.txt'
