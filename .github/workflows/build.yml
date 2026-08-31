@@ -18,14 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v6.0.2
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
     - name: NDK Setup
       uses: nttld/setup-ndk@v1
       with:
         ndk-version: r27b
-    - name: Build JNI
+    - name: Build Encore JNI
       working-directory: ./src
       run: ndk-build
     - name: Build WebUI
