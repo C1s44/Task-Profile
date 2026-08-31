@@ -1,40 +1,55 @@
-name: Build task
+name: Build TaskProfile utils
 
 on:
   workflow_dispatch:
   push:
     branches:
-      - main
-    paths:
-      - '.github/workflows/**'
-      - 'src/**'
-      - 'share/**'
-      - 'dpkg-conf/**'
-      - 'Makefile'
-
+      - '**'
+    paths: 
+          - '.github/workflows/build.yml'
+          - 'module/META-INF/com/google/android/**'
+          - 'module/system/vendor/etc/**'
+          - '.github/scripts**'
+          - 'README.md'
+          - 'module/**'
+          - 'version'
+          
+          
 jobs:
   build:
-    name: Build JNI
+    name: Build Ubuntu
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+    - name: Check
+      uses: actions/checkout@v6.0.2
       with:
         fetch-depth: 0
-    - name: NDK Setup
+    - name: Setup NDK
       uses: nttld/setup-ndk@v1
       with:
         ndk-version: r27
+  
+    - name: Copy out version
+      id: copyOutVersion
+      run: |
+        version="$(cat version)"
+        version_code=$(git rev-list HEAD --count)
+        gitsha1=$(git rev-parse --short HEAD)
+        sed -i "s/version=.*/version=$version-$gitsha1-main/" ./module/module.prop
+        sed -i "s/versionCode=.*/versionCode=$version_code/" ./module/module.prop
+        zipName="TaskProfileさ-Utils-$version-$version_code_$gitsha1-main.zip" && echo "zipName=$zipName" >> $GITHUB_OUTPUT
+        cd ./module && zip -r9 ../$zipName * -x *placeholder
     - name: Upload to telegram
       env:
         CHAT_ID: ${{ secrets.TELEGRAM_TO }}
         BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
         COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         COMMIT_URL: ${{ github.event.head_commit.url }}
+        BRANCH: ${{ github.ref_name }}
         RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        TITLE: TASK
+        TITLE: Task Profile
       run: |
         if [ ! -z "${{ secrets.TELEGRAM_TOKEN }}" ]; then
           export VERSION=$(git rev-list --count HEAD)
-          bash $GITHUB_WORKSPACE/.github/scripts/telegram_bot.sh $GITHUB_WORKSPACE/$DEB
+          bash $GITHUB_WORKSPACE/.github/scripts/telegram_bot.sh $GITHUB_WORKSPACE/${{ steps.copyOutVersion.outputs.zipName }}
         fi
