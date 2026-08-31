@@ -41,7 +41,7 @@ jobs:
         cd ./module && zip -r9 ../$zipName * -x *placeholder
     - name: Upload to telegram
       env:
-        CHAT_ID: ${{ secrets.TELEGRAM_O }}
+        CHAT_ID: ${{ secrets.TELEGRAM_TO }}
         BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
         COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         COMMIT_URL: ${{ github.event.head_commit.url }}
