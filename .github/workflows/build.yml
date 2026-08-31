@@ -19,10 +19,11 @@ jobs:
   build:
     name: Build Ubuntu
     runs-on: ubuntu-latest
+    
     steps:
-    - name: Check
-      uses: actions/checkout@v4
-      with:
+    - name: Checkout
+     uses: actions/checkout@v7
+     with:
         fetch-depth: 0
     - name: Setup NDK
       uses: nttld/setup-ndk@v1
