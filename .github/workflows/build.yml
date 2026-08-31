@@ -1,4 +1,4 @@
-name: Build Task profile
+name: Build task
 
 on:
   workflow_dispatch:
@@ -6,39 +6,24 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/**'
+      - '.github/workflows/build.yml'
       - 'src/**'
-      - 'module/**'
-      - 'gamelist.txt'
+      - 'share/**'
+      - 'dpkg-conf/**'
+      - 'Makefile'
 
 jobs:
   build:
-    name: check ubuntu
+    name: Ubuntu latest
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    - name: NDK Setup
-      uses: nttld/setup-ndk@v1
-      with:
-        ndk-version: r27
-    - name: Copy out version
-      id: copyOutVersion
-      run: |
-        version=$(cat version)"
-        version_code=$(git rev-list HEAD --count)
-        gitsha1=$(git rev-parse --short HEAD)
-        sed -i "s/version=.*/version=$version_main/" ./module/module.prop
-        sed -i "s/versionCode=.*/versionCode=$version_code/" ./module/module.prop
-        zipName="encore-$version-$version_code_main.zip" && echo "zipName=$zipName" >> $GITHUB_OUTPUT
-        cd ./module && zip -r9 ../$zipName * -x *placeholder
-    - name: Upload build artifact
+    - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ steps.copyOutVersion.outputs.zipName }}
-        path: ./
     - name: Upload to telegram
       env:
         CHAT_ID: ${{ secrets.TELEGRAM_TO }}
@@ -46,9 +31,9 @@ jobs:
         COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         COMMIT_URL: ${{ github.event.head_commit.url }}
         RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        TITLE: Task Profile
+        TITLE: TASK
       run: |
         if [ ! -z "${{ secrets.TELEGRAM_TOKEN }}" ]; then
           export VERSION=$(git rev-list --count HEAD)
-          bash $GITHUB_WORKSPACE/.github/scripts/telegram_bot.sh $GITHUB_WORKSPACE/${{ steps.copyOutVersion.outputs.zipName }}
+          bash $GITHUB_WORKSPACE/.github/scripts/telegram_bot.sh $GITHUB_WORKSPACE/$DEB
         fi
