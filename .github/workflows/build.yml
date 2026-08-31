@@ -1,0 +1,50 @@
+name: Build task
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/build.yml'
+      - 'src/**'
+      - 'share/**'
+      - 'dpkg-conf/**'
+      - 'Makefile'
+
+jobs:
+  build:
+    name: Build Flashable Zip
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: NDK Setup
+      uses: nttld/setup-ndk@v1
+      with:
+        ndk-version: r27b
+    - name: Build Encore JNI
+      working-directory: ./src
+      run: ndk-build
+    - name: Build WebUI
+      working-directory: ./src/webui
+      run: |
+        npm install
+        npm run tailwind
+        npm run build
+        cp ./dist/* ../../module/webroot
+    - name: Upload to telegram
+      env:
+        CHAT_ID: ${{ secrets.TELEGRAM_TO }}
+        BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        COMMIT_URL: ${{ github.event.head_commit.url }}
+        RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        TITLE: TASK
+      run: |
+        if [ ! -z "${{ secrets.TELEGRAM_TOKEN }}" ]; then
+          export VERSION=$(git rev-list --count HEAD)
+          bash $GITHUB_WORKSPACE/.github/scripts/telegram_bot.sh $GITHUB_WORKSPACE/$DEB
+        fi
