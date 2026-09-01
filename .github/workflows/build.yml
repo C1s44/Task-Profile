@@ -12,6 +12,7 @@ on:
 
 jobs:
   build:
+    steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -29,13 +30,13 @@ jobs:
           cd ./module && zip -r9 ../$zipName * -x *placeholder
       
       - name: Upload to telegram
-      env:
-        CHAT_ID: ${{ secrets.TELEGRAM_TO }}
-        BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-        COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
-        COMMIT_URL: ${{ github.event.head_commit.url }}
-        RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        TITLE: Task
+        env:
+          CHAT_ID: ${{ secrets.TELEGRAM_TO }}
+          BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          COMMIT_URL: ${{ github.event.head_commit.url }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          TITLE: Task
         run: |
           export VERSION=$(git rev-list --count HEAD)
           bash $GITHUB_WORKSPACE/.github/scripts/telegram_bot.sh $GITHUB_WORKSPACE/${{ steps.copyOutVersion.outputs.zipName }}
