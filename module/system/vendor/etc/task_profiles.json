@@ -49,7 +49,7 @@
     
   ],
   
- "Profiles": [
+  "Profiles": [
     {
       "Name": "HighEnergySaving",
       "Actions": [
@@ -60,10 +60,18 @@
             "Controller": "schedtune",
             "Path": "background"
           }
+        },
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "schedtuneB",
+            "Value": "0"
+          }
         }
-     ]
+      ]
     },
-    {
+        {
       "Name": "NormalPerformance",
       "Actions": [
         {
@@ -86,7 +94,15 @@
             "Controller": "schedtune",
             "Path": "foreground"
           }
-        }
+        },
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "schedtuneB",
+            "Value": "10"
+          }
+    }
       ]
     },
    {
@@ -112,7 +128,15 @@
             "Controller": "schedtune",
             "Path": "top-app"
           }
-        }
+        },
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "schedtuneB",
+            "Value": "25"
+          }
+    }
       ]
     },
    {
