@@ -11,10 +11,6 @@ on:
       - '.github/scripts/telegram_bot.sh'
 
 jobs:
-  build:
-    name: Build JNI
-    runs-on: ubuntu-latest
-    steps:
       - name: Checkout
         uses: actions/checkout@v7
         with:
