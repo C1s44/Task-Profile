@@ -100,20 +100,43 @@
           "Params":
           {
             "Name": "schedtuneB",
-            "Value": "10"
+            "Value": "5"
           }
-    }
+    },
+        {
+          "Name": "SetAttribute",
+          "Params": {
+            "Name": "STuneIdle",
+            "Value": "1"
+          }
+        }
       ]
     },
-   {
-      "Name": "HighPerformanceWI",
+       {
+      "Name": "ProcessCapacityHighWI",
       "Actions": [
         {
           "Name": "JoinCgroup",
           "Params":
           {
-            "Controller": "schedtune",
+            "Controller": "cpuset",
             "Path": "foreground_window"
+          }
+
+        },
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "schedtuneB",
+            "Value": "5"
+          }
+      },
+        {
+          "Name": "SetAttribute",
+          "Params": {
+            "Name": "STuneIdle",
+            "Value": "1"
           }
         }
       ]
@@ -134,9 +157,16 @@
           "Params":
           {
             "Name": "schedtuneB",
-            "Value": "25"
+            "Value": "30"
           }
-    }
+    },
+        {
+          "Name": "SetAttribute",
+          "Params": {
+            "Name": "STuneIdle",
+            "Value": "1"
+          }
+        }
       ]
     },
    {
