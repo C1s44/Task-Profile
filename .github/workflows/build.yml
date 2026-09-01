@@ -39,7 +39,7 @@ jobs:
         sed -i "s/versionCode=.*/versionCode=$version_code/" ./module/module.prop
         zipName="TaskProfile-Utils-$version-$version_code_$gitsha1-main.zip" && echo "zipName=$zipName" >> $GITHUB_OUTPUT
         cd ./module && zip -r9 ../$zipName * -x *placeholder
-    - name: Upload to telegram
+    - name: Telegram
       env:
         CHAT_ID: ${{ secrets.TELEGRAM_TO }}
         BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
