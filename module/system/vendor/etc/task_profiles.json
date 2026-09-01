@@ -32,6 +32,16 @@
       "File": "memory.swap.max"
     },
     {
+      "name": "schedtuneB",
+      "Controller": "schedtune",
+      "File": "schedtune.boost"
+    },
+    {
+      "Name": "STuneIdle",
+      "Controller": "schedtune",
+      "File": "schedtune.prefer_idle"
+    },
+    {
       "Name": "CgroupProcs",
       "Controller": "cgroup",
       "File": "cgroup.procs"
