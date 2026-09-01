@@ -11,6 +11,7 @@ on:
       - '.github/scripts/telegram_bot.sh'
 
 jobs:
+  build:
       - name: Checkout
         uses: actions/checkout@v7
         with:
