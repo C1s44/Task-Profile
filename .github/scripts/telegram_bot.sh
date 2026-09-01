@@ -2,7 +2,7 @@
 
 msg="*$TITLE*
 Branch: $BRANCH
-\\#ci\\_$VERSION
+\\#ci\\_${GITHUB_RUN_NUMBER}
 \`\`\`
 $COMMIT_MESSAGE 
 \`\`\`
