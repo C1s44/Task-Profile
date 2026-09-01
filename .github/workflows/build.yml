@@ -1,35 +1,36 @@
-name: Build TaskProfile utils
+# This is a basic workflow to help you get started with Actions
 
+name: Build Task profile for blossom
+
+# Controls when the workflow will run
 on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
   workflow_dispatch:
   push:
-    branches:
-      - '**'
-    paths: 
-          - '.github/workflows/build.yml'
-          - 'module/META-INF/com/google/android/**'
-          - 'module/system/vendor/etc/**'
-          - '.github/scripts**'
-          - 'README.md'
-          - 'module/**'
-          - 'version'
-          
-          
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  # This workflow contains a single job called "build"
   build:
-    name: Build Ubuntu
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Check
-      uses: actions/checkout@v7
-      with:
-        fetch-depth: 0
-    - name: Setup NDK
-      uses: nttld/setup-ndk@v1
-      with:
-        ndk-version: r27
-  
-    - name: Upload to telegram
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+          - name: Upload to telegram
       env:
         CHAT_ID: ${{ secrets.TELEGRAM_TO }}
         BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
@@ -38,3 +39,8 @@ jobs:
         BRANCH: ${{ github.ref_name }}
         RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         TITLE: Task Profile
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
