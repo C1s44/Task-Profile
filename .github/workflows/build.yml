@@ -9,6 +9,7 @@ on:
       - '.github/workflows/build.yml'
       - 'module/**'
       - '.github/scripts/telegram_bot.sh'
+      - 'version'
 
 jobs:
   build:
