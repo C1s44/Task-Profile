@@ -60,14 +60,6 @@
             "Controller": "schedtune",
             "Path": "background"
           }
-        },
-        {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "schedtuneB",
-            "Value": "0"
-          }
         }
       ]
     },
@@ -100,7 +92,7 @@
           "Params":
           {
             "Name": "schedtuneB",
-            "Value": "5"
+            "Value": "80"
           }
     },
         {
@@ -129,14 +121,14 @@
           "Params":
           {
             "Name": "schedtuneB",
-            "Value": "5"
+            "Value": "40"
           }
       },
         {
           "Name": "SetAttribute",
           "Params": {
             "Name": "STuneIdle",
-            "Value": "1"
+            "Value": "0"
           }
         }
       ]
@@ -157,7 +149,7 @@
           "Params":
           {
             "Name": "schedtuneB",
-            "Value": "30"
+            "Value": "100"
           }
     },
         {
@@ -255,7 +247,7 @@
           "Name": "JoinCgroup",
           "Params":
           {
-            "Controller": "schedtune",
+            "Controller": "cpuset",
             "Path": "application"
           }
         }
@@ -268,7 +260,7 @@
           "Name": "JoinCgroup",
           "Params":
           {
-            "Controller": "schedtune",
+            "Controller": "cpuset",
             "Path": "application/performance"
           }
         }
@@ -482,7 +474,7 @@
           "Name": "SetTimerSlack",
           "Params":
           {
-            "Slack": "200000000"
+            "Slack": "400000000"
           }
         }
       ]
@@ -508,7 +500,7 @@
     },
     {
       "Name": "SCHED_SP_BACKGROUND",
-      "Profiles": [ "HighEnergySaving", "LowIoPriority", "TimerSlackHigh" ]
+      "Profiles": [ "HighEnergySaving", "ServiceCapacityRestricted", "LowIoPriority", "TimerSlackHigh" ]
     },
     {
           "Name": "SCHED_SP_FOREGROUND",
@@ -536,7 +528,7 @@
     },
     {
       "Name": "CPUSET_SP_BACKGROUND",
-      "Profiles": [ "HighEnergySaving", "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh" ]
+      "Profiles": [ "HighEnergySaving", "ServiceCapacityRestricted", "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh" ]
     },
     {
       "Name": "CPUSET_SP_TOP_APP",
