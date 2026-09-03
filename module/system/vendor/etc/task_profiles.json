@@ -92,7 +92,7 @@
           "Params":
           {
             "Name": "schedtuneB",
-            "Value": "80"
+            "Value": "100"
           }
     },
         {
@@ -121,7 +121,7 @@
           "Params":
           {
             "Name": "schedtuneB",
-            "Value": "40"
+            "Value": "15"
           }
       },
         {
@@ -528,7 +528,7 @@
     },
     {
       "Name": "CPUSET_SP_BACKGROUND",
-      "Profiles": [ "HighEnergySaving", "ServiceCapacityRestricted", "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh" ]
+      "Profiles": [ "HighEnergySaving", "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh" ]
     },
     {
       "Name": "CPUSET_SP_TOP_APP",
