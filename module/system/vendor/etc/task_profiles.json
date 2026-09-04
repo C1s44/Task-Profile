@@ -7,6 +7,11 @@
       "File": "background/cpus"
     },
     {
+    "Name": "LowCapacityNtCPUs",
+    "Controller": "cpuset",
+    "File": "nt_foreground/cpus"
+    },
+    {
       "Name": "HighCapacityCPUs",
       "Controller": "cpuset",
       "File": "foreground/cpus"
@@ -32,7 +37,7 @@
       "File": "memory.swap.max"
     },
     {
-      "name": "schedtuneB",
+      "Name": "schedtuneB",
       "Controller": "schedtune",
       "File": "schedtune.boost"
     },
@@ -81,15 +86,7 @@
             "Controller": "schedtune",
             "Path": "camera-daemon"
           }
-        },
-          {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "STuneIdle",
-            "Value": "1"
-          }
-          }
+        }
       ]
     },
     {
@@ -113,6 +110,28 @@
           }
           ]
     },
+           {
+      "Name": "ProcessCapacityHighNt",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "cpuset",
+            "Path": "nt_foreground"
+          }
+
+        },
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "schedtuneB",
+            "Value": "50"
+          }
+      }
+      ]
+    },
        {
       "Name": "ProcessCapacityHighWI",
       "Actions": [
@@ -130,11 +149,12 @@
           "Params":
           {
             "Name": "schedtuneB",
-            "Value": "60"
+            "Value": "40"
           }
       }
       ]
     },
+    
     {
       "Name": "MaxPerformance",
       "Actions": [
@@ -309,19 +329,6 @@
           {
             "Controller": "cpuset",
             "Path": "foreground"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "ProcessCapacityHighWI",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "cpuset",
-            "Path": "foreground_window"
           }
         }
       ]
@@ -514,6 +521,10 @@
       "Profiles": [ "ServicePerformance", "LowIoPriority", "TimerSlacNormal" ]
     },
     {
+      "Name": "SCHED_SP_COMPUTE",
+      "Profiles": [ "HighPerformance", "ProcessCapacityHigh", "LowIoPriority", "TimerSlackNormal" ]
+    },
+    {
       "Name": "SCHED_SP_RT_APP",
       "Profiles": [ "RealtimePerformance", "highIoPriority", "TimerSlackNormal" ]
     },
@@ -526,6 +537,10 @@
       "Profiles": [ "HighEnergySaving", "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh" ]
     },
     {
+      "Name": "CPUSET_SP_NT_FOREGROUND",
+      "Profiles": [ "ProcessCapacityHighNt", "HighIoPriority", "TimerSlackNormal" ]
+    },
+    {
       "Name": "CPUSET_SP_TOP_APP",
       "Profiles": [ "MaxPerformance", "ProcessCapacityMax", "HighIoPriority", "TimerSlackNormal" ]
     },
@@ -535,7 +550,7 @@
     },
     {
       "Name": "CPUSET_SP_FOREGROUND_WINDOW",
-      "Profiles": [ "HighPerformanceWI", "ProcessCapacityHighWI", "lowIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "ProcessCapacityHighWI", "lowIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "Dex2OatBootComplete",
