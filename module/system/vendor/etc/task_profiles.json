@@ -61,7 +61,6 @@
             "Path": "background"
           }
         },
-          
           {
           "Name": "SetAttribute",
           "Params":
@@ -82,7 +81,15 @@
             "Controller": "schedtune",
             "Path": "system"
           }
-        }
+        },
+          {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "STuneIdle",
+            "Value": "1"
+          }
+          }
       ]
     },
     {
