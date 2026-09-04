@@ -120,16 +120,7 @@
             "Controller": "cpuset",
             "Path": "nt_foreground"
           }
-
-        },
-        {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "schedtuneB",
-            "Value": "50"
-          }
-      }
+        }
       ]
     },
        {
@@ -430,7 +421,7 @@
           "Params":
           {
             "Name": "MemSwappiness",
-            "Value": "100"
+            "Value": "120"
           }
         }
       ]
@@ -451,7 +442,7 @@
           "Params":
           {
             "Name": "MemSwappiness",
-            "Value": "100"
+            "Value": "120"
           }
         }
       ]
