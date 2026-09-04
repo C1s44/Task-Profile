@@ -60,6 +60,15 @@
             "Controller": "schedtune",
             "Path": "background"
           }
+        },
+          
+          {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "STuneIdle",
+            "Value": "1"
+          }
         }
       ]
     },
@@ -94,15 +103,8 @@
             "Name": "schedtuneB",
             "Value": "100"
           }
-    },
-        {
-          "Name": "SetAttribute",
-          "Params": {
-            "Name": "STuneIdle",
-            "Value": "1"
           }
-        }
-      ]
+          ]
     },
        {
       "Name": "ProcessCapacityHighWI",
@@ -123,14 +125,7 @@
             "Name": "schedtuneB",
             "Value": "60"
           }
-      },
-        {
-          "Name": "SetAttribute",
-          "Params": {
-            "Name": "STuneIdle",
-            "Value": "0"
-          }
-        }
+      }
       ]
     },
     {
@@ -151,14 +146,7 @@
             "Name": "schedtuneB",
             "Value": "100"
           }
-    },
-        {
-          "Name": "SetAttribute",
-          "Params": {
-            "Name": "STuneIdle",
-            "Value": "1"
-          }
-        }
+    }
       ]
     },
    {
