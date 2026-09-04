@@ -79,7 +79,7 @@
           "Params":
           {
             "Controller": "schedtune",
-            "Path": "system"
+            "Path": "camera-daemon"
           }
         },
           {
