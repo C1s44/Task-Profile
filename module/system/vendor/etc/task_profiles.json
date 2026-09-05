@@ -65,14 +65,6 @@
             "Controller": "schedtune",
             "Path": "background"
           }
-        },
-          {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "STuneIdle",
-            "Value": "1"
-          }
         }
       ]
     },
@@ -421,7 +413,7 @@
           "Params":
           {
             "Name": "MemSwappiness",
-            "Value": "100"
+            "Value": "120"
           }
         }
       ]
@@ -442,7 +434,7 @@
           "Params":
           {
             "Name": "MemSwappiness",
-            "Value": "100"
+            "Value": "120"
           }
         }
       ]
