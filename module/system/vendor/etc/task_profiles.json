@@ -1,16 +1,6 @@
 {
   "Attributes": [
    {
-      "Name": "LowCapacityHbCPUs",
-      "Controller": "cpuset",
-      "File": "h-background/cpus"
-   },  
-   {
-      "Name": "LowCapacitylbCPUs",
-      "Controller": "cpuset",
-      "File": "l-background/cpus"
-   },  
-   {
       "Name": "LowCapacityCPUs",
       "Controller": "cpuset",
       "File": "background/cpus"
@@ -103,32 +93,6 @@
         }
       ]
     },
-    {
-      "Name":"ProcessCapacityLowLb",
-     "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "cpuset",
-            "Path": "l-background"
-          }
-        }
-      ]
-    },  
-    {
-      "Name":"ProcessCapacityLowHb",
-     "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "cpuset",
-            "Path": "h-background"
-          }
-        }
-      ]
-    },  
     {
       "Name": "ProcessCapacityHighAx",
       "Actions": [
@@ -423,7 +387,7 @@
           "Params":
           {
             "Name": "MemSwappiness",
-            "Value": "120"
+            "Value": "100"
           }
         }
       ]
@@ -444,7 +408,7 @@
           "Params":
           {
             "Name": "MemSwappiness",
-            "Value": "120"
+            "Value": "100"
           }
         }
       ]
@@ -469,7 +433,7 @@
           "Name": "SetTimerSlack",
           "Params":
           {
-            "Slack": "400000000"
+            "Slack": "800000000"
           }
         }
       ]
@@ -532,14 +496,6 @@
     {
       "Name": "CPUSET_SP_Ax_FOREGROUND",
       "Profiles": [ "ProcessCapacityHighAx", "HighIoPriority", "TimerSlackNormal" ]
-    },
-    {
-      "Name": "CPUSET_SP_Hb_Background",
-      "Profiles": ["ProcessCapacityLowHb", "LowIoPriority", "TimerSlackHigh" ]
-    },
-    {
-      "Name": "CPUSET_SP_Lb_Background",
-      "Profiles": ["ProcessCapacityLowLb", "LowIoPriority", "TimerSlackHigh" ]
     },
     {
       "Name": "CPUSET_SP_TOP_APP",
