@@ -421,7 +421,7 @@
           "Params":
           {
             "Name": "MemSwappiness",
-            "Value": "120"
+            "Value": "100"
           }
         }
       ]
@@ -442,7 +442,7 @@
           "Params":
           {
             "Name": "MemSwappiness",
-            "Value": "120"
+            "Value": "100"
           }
         }
       ]
@@ -513,7 +513,7 @@
     },
     {
       "Name": "SCHED_SP_COMPUTE",
-      "Profiles": [ "HighPerformance", "ProcessCapacityHigh", "LowIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "HighPerformance", "ProcessCapacityHigh", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "SCHED_SP_RT_APP",
@@ -541,7 +541,7 @@
     },
     {
       "Name": "CPUSET_SP_FOREGROUND_WINDOW",
-      "Profiles": [ "ProcessCapacityHighWI", "lowIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "ProcessCapacityHighWI", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "Dex2OatBootComplete",
