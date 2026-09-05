@@ -1,15 +1,24 @@
 {
   "Attributes": [
-      
+   {
+      "Name": "LowCapacityHbCPUs",
+      "Controller": "cpuset",
+      "File": "h-background/cpus"
+   },  
+   {
+      "Name": "LowCapacitylbCPUs",
+      "Controller": "cpuset",
+      "File": "l-background/cpus"
+   },  
    {
       "Name": "LowCapacityCPUs",
       "Controller": "cpuset",
       "File": "background/cpus"
     },
     {
-    "Name": "LowCapacityNtCPUs",
+    "Name": "LowCapacityAxCPUs",
     "Controller": "cpuset",
-    "File": "nt_foreground/cpus"
+    "File": "ax_foreground/cpus"
     },
     {
       "Name": "HighCapacityCPUs",
@@ -91,26 +100,44 @@
             "Controller": "schedtune",
             "Path": "foreground"
           }
-        },
+        }
+      ]
+    },
+    {
+      "Name":"ProcessCapacityLowLb",
+     "Actions": [
         {
-          "Name": "SetAttribute",
+          "Name": "JoinCgroup",
           "Params":
           {
-            "Name": "schedtuneB",
-            "Value": "100"
+            "Controller": "cpuset",
+            "Path": "l-background"
           }
+        }
+      ]
+    },  
+    {
+      "Name":"ProcessCapacityLowHb",
+     "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "cpuset",
+            "Path": "h-background"
           }
-          ]
-    },
-           {
-      "Name": "ProcessCapacityHighNt",
+        }
+      ]
+    },  
+    {
+      "Name": "ProcessCapacityHighAx",
       "Actions": [
         {
           "Name": "JoinCgroup",
           "Params":
           {
             "Controller": "cpuset",
-            "Path": "nt_foreground"
+            "Path": "ax_foreground"
           }
         }
       ]
@@ -125,16 +152,7 @@
             "Controller": "cpuset",
             "Path": "foreground_window"
           }
-
-        },
-        {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "schedtuneB",
-            "Value": "40"
-          }
-      }
+        }
       ]
     },
     
@@ -148,18 +166,10 @@
             "Controller": "schedtune",
             "Path": "top-app"
           }
-        },
-        {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "schedtuneB",
-            "Value": "100"
-          }
-    }
+        }
       ]
     },
-   {
+    {
       "Name": "RealtimePerformance",
       "Actions": [
         {
@@ -171,7 +181,7 @@
           }
         }
       ]
-    },
+     },
 
        {
       "Name": "VrKernelCapacity",
@@ -520,8 +530,16 @@
       "Profiles": [ "HighEnergySaving", "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh" ]
     },
     {
-      "Name": "CPUSET_SP_NT_FOREGROUND",
-      "Profiles": [ "ProcessCapacityHighNt", "HighIoPriority", "TimerSlackNormal" ]
+      "Name": "CPUSET_SP_Ax_FOREGROUND",
+      "Profiles": [ "ProcessCapacityHighAx", "HighIoPriority", "TimerSlackNormal" ]
+    },
+    {
+      "Name": "CPUSET_SP_Hb_Background",
+      "Profiles": ["ProcessCapacityLowHb", "LowIoPriority", "TimerSlackHigh" ]
+    },
+    {
+      "Name": "CPUSET_SP_Lb_Background",
+      "Profiles": ["ProcessCapacityLowLb", "LowIoPriority", "TimerSlackHigh" ]
     },
     {
       "Name": "CPUSET_SP_TOP_APP",
