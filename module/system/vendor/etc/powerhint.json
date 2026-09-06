@@ -1,0 +1,349 @@
+{
+  "Nodes": [
+    {
+      "Name": "SysDevicesSystemCpuCpu0CpufreqScalingMaxFreq",
+      "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq",
+      "Values": [
+        "900000",
+        "1961000",
+        "1927000",
+        "1897000",
+        "1868000",
+        "1838000",
+        "1809000",
+        "1779000",
+        "1750000",
+        "1617000",
+        "1484000",
+        "1351000",
+        "1218000",
+        "1085000",
+        "979000",
+        "900000"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "SysDevicesSystemCpuCpu0CpufreqScalingMinFreq",
+      "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq",
+      "Values": [
+        "900000",
+        "1961000",
+        "1927000",
+        "1897000",
+        "1868000",
+        "1838000",
+        "1809000",
+        "1779000",
+        "1750000",
+        "1617000",
+        "1484000",
+        "1351000",
+        "1218000",
+        "1085000",
+        "979000",
+        "900000"
+      ],
+      "ResetOnInit": true
+    },
+        {
+      "Name": "SysDevicesSystemCpuCpu4CpufreqScalingMaxFreq",
+      "Path": "/sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq",
+      "Values": [
+        "900000",
+        "1429000",
+        "1367000",
+        "1314000",
+        "1261000",
+        "1208000",
+        "1155000",
+        "1102000",
+        "1050000",
+        "948000",
+        "846000",
+        "745000",
+        "643000",
+        "542000",
+        "501000",
+        "400000"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "SysDevicesSystemCpuCpu4CpufreqScalingMinFreq",
+      "Path": "/sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq",
+      "Values": [
+        "9000000",
+        "1429000",
+        "1367000",
+        "1314000",
+        "1261000",
+        "1208000",
+        "1155000",
+        "1102000",
+        "1050000",
+        "948000",
+        "846000",
+        "745000",
+        "643000",
+        "542000",
+        "501000",
+        "400000"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "DevStuneTopAppSchedtuneBoost",
+      "Path": "/dev/stune/top-app/schedtune.boost",
+      "Values": [
+        "100",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "DevStuneForegroundSchedtuneBoost(",
+      "Path": "/dev/stune/foreground/schedtune.boost",
+      "Values": [
+        "100",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "ProcPerfmgrBoostCtrlDramCtrlDdr",
+      "Path": "/proc/perfmgr/boost_ctrl/dram_ctrl/ddr",
+      "Values": [
+        "-1",
+        "0",
+        "1",
+        "2"
+      ],
+      "ResetOnInit": true,
+      "DefaultIndex": 0
+    },      
+    {
+      "Name": "SysKernelGedHalDvfsMarginValue",
+      "Path": "/sys/kernel/ged/hal/dvfs_margin_value",
+      "Values": [
+        "100",
+        "0"
+      ],
+      "ResetOnInit": true,
+      "DefaultIndex": 0
+    },
+    {
+      "Name": "ProcPerfmgrBoostCtrlEasCtrlPerfFgUclampMin",
+      "Path": "/proc/perfmgr/boost_ctrl/eas_ctrl/perf_fg_uclamp_min",
+      "Values": [
+        "100",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+        {
+      "Name": "ProcPerfmgrBoostCtrlDramCtrlDdr",
+      "Path": "/proc/perfmgr/boost_ctrl/dram_ctrl/ddr",
+      "Values": [
+        "1",
+        "-1"
+      ],
+      "ResetOnInit": true
+    },
+    {
+          "Name": "SysKernelFpsgoCommonGpuBlockBoost",
+      "Path": "/sys/kernel/fpsgo/common/gpu_block_boost",
+      "Values": [
+        "101",
+        "50",
+        "0",
+        "-1"
+      ],
+      "ResetOnInit": true,
+      "DefaultIndex": 2
+    },
+    {
+      "Name": "DevSysFsByNameUserdataGcUrgent",
+      "Path": "/dev/sys/fs/by-name/userdata/gc_urgent",
+      "Values": [
+        "2",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "DevSysFsByNameUserdataGcUrgent",
+      "Path": "/dev/sys/fs/by-name/userdata/gc_urgent",
+      "Values": [
+        "2",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "PowerHALMainState",
+      "Path": "vendor.powerhal.state",
+      "Values": [
+        "SUSTAINED_PERFORMANCE",
+        ""
+      ],
+      "Type": "Property"
+    },
+    {
+      "Name": "PowerHALAudioState",
+      "Path": "vendor.powerhal.audio",
+      "Values": [
+        "AUDIO_STREAMING_LOW_LATENCY",
+        ""
+      ],
+      "Type": "Property"
+    },
+    {
+      "Name": "PowerHALRenderingState",
+      "Path": "vendor.powerhal.rendering",
+      "Values": [
+        "EXPENSIVE_RENDERING",
+        ""
+      ],
+      "Type": "Property"
+    },
+    {
+      "Name": "ProcPerfmgrBoostCtrlEasCtrlSchedBoost",
+      "Path": "/proc/perfmgr/boost_ctrl/eas_ctrl/sched_boost",
+      "Values": [
+        "1",
+        "0"
+      ],
+      "ResetOnInit": true
+    }
+  ],
+   "Actions": [
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "PowerHALMainState",
+      "Duration": 0,
+      "Value": "SUSTAINED_PERFORMANCE"
+    },
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "SysDevicesSystemCpuCpu0CpufreqScalingMaxFreq",
+      "Duration": 0,
+      "Value": "900000"
+    },
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "SysDevicesSystemCpuCpu0CpufreqScalingMinFreq",
+      "Duration": 0,
+      "Value": "900000"
+    },
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "SysDevicesSystemCpuCpu4CpufreqScalingMaxFreq",
+      "Duration": 0,
+      "Value": "900000"
+    },
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "SysDevicesSystemCpuCpu4CpufreqScalingMinFreq",
+      "Duration": 1000,
+      "Value": "9999999" 
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "DevStuneTopAppSchedtuneBoost",
+      "Duration": 5000,
+      "Value": "100"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "DevStuneForegroundSchedtuneBoost",
+      "Duration": 5000,
+      "Value": "100"
+    },
+   {
+      "PowerHint": "LAUNCH",
+      "Node": "ProcPerfmgrBoostCtrlDramCtrlDdr",
+      "Duration": 5000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "ProcPerfmgrBoostCtrlEasCtrlSchedBoost",
+      "Duration": 5000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "DEVICE_IDLE",
+      "Node": "DevSysFsByNameUserdataGcUrgent",
+      "Duration": 0,
+      "Value": "2"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "SysDevicesSystemCpuCpu0CpufreqScalingMinFreq",
+      "Duration": 58,
+      "Value": "1171200"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "SysDevicesSystemCpuCpu4CpufreqScalingMinFreq",
+      "Duration": 58,
+      "Value": "1344000"
+    },
+     {
+      "PowerHint": "LAUNCH",
+      "Node": "SysDevicesSystemCpuCpu0CpufreqScalingMaxFreq",
+      "Duration": 1000,
+      "Value": "9999999"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "SysDevicesSystemCpuCpu0CpufreqScalingMinFreq",
+      "Duration": 1000,
+      "Value": "9999999"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "SysDevicesSystemCpuCpu4CpufreqScalingMaxFreq",
+      "Duration": 1000,
+      "Value": "9999999"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "SysDevicesSystemCpuCpu4CpufreqScalingMinFreq",
+      "Duration": 1000,
+      "Value": "9999999"
+    },
+     {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "PowerHALRenderingState",
+      "Duration": 0,
+      "Value": "EXPENSIVE_RENDERING"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "SysKernelGedHalDvfsMarginValue",
+      "Duration": 0,
+      "Value": "100"
+    },
+    {
+      "PowerHint": "SysKernelFpsgoCommonGpuBlockBoost",
+      "Node": "GPUBlockBoost",
+      "Duration": 0,
+      "Value": "50"
+    },
+    {
+      "PowerHint": "DOUBLE_TAP_TO_WAKE",
+      "Node": "DoubleTapToWakeEnable",
+      "Duration": 0,
+      "Value": "1"
+    }
+
+
+     
+   ]
+}
+
+     
