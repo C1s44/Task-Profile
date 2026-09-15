@@ -6,11 +6,6 @@
       "File": "background/cpus"
     },
     {
-    "Name": "LowCapacityAxCPUs",
-    "Controller": "cpuset",
-    "File": "ax_foreground/cpus"
-    },
-    {
       "Name": "HighCapacityCPUs",
       "Controller": "cpuset",
       "File": "foreground/cpus"
@@ -89,19 +84,6 @@
           {
             "Controller": "schedtune",
             "Path": "foreground"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "ProcessCapacityHighAx",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "cpuset",
-            "Path": "ax_foreground"
           }
         }
       ]
@@ -492,10 +474,6 @@
     {
       "Name": "CPUSET_SP_BACKGROUND",
       "Profiles": [ "HighEnergySaving", "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh" ]
-    },
-    {
-      "Name": "CPUSET_SP_Ax_FOREGROUND",
-      "Profiles": [ "ProcessCapacityHighAx", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "CPUSET_SP_TOP_APP",
