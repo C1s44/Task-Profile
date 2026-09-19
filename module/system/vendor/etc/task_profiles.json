@@ -21,7 +21,7 @@
       "File": "top-app/cpus"
     },
     {
-      "name": "memory",
+      "Name": "memory",
       "File": "memory.soft_limit_in_bytes",
       "FileV2": "memory.low"
     },
@@ -369,7 +369,7 @@
           "Params":
           {
             "Name": "MemSwappiness",
-            "Value": "100"
+            "Value": "200"
           }
         }
       ]
@@ -390,7 +390,7 @@
           "Params":
           {
             "Name": "MemSwappiness",
-            "Value": "100"
+            "Value": "200"
           }
         }
       ]
@@ -415,7 +415,7 @@
           "Name": "SetTimerSlack",
           "Params":
           {
-            "Slack": "800000000"
+            "Slack": "400000000"
           }
         }
       ]
@@ -449,7 +449,7 @@
     },
     {
       "Name": "SCHED_SP_FOREGROUND_WINDOW",
-      "Profiles": [ "HighPerformanceWI", "HighIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "ProcessCapacityHighWI", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "SCHED_SP_TOP_APP",
@@ -457,7 +457,7 @@
     },
     {
       "Name": "SCHED_SP_SYSTEM",
-      "Profiles": [ "ServicePerformance", "LowIoPriority", "TimerSlacNormal" ]
+      "Profiles": [ "ServicePerformance", "LowIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "SCHED_SP_COMPUTE",
@@ -465,7 +465,7 @@
     },
     {
       "Name": "SCHED_SP_RT_APP",
-      "Profiles": [ "RealtimePerformance", "highIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "RealtimePerformance", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "CPUSET_SP_DEFAULT",
