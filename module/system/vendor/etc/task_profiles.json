@@ -22,7 +22,7 @@
     },
     {
       "Name": "memory",
-      "File": "memory.soft_limit_in_bytes",
+      "Controller": "system"
       "FileV2": "memory.low"
     },
     {
@@ -32,12 +32,12 @@
     },
         {
       "Name": "MemStats",
-      "Controller": "memory",
+      "Controller": "system",
       "File": "memory.stat"
     },
     {
       "Name": "MemLimit",
-      "Controller": "memory",
+      "Controller": "system",
       "File": "memory.limit_in_bytes",
       "FileV2": "memory.max"
     },
@@ -45,9 +45,8 @@
       "Name": "MemSwapCurrent",
       "Controller": "system",
       "File": "memory.limit_in_bytes",
-      "FileV2": "memory.swap.current"
+      "FileV2": "memory.current"
     },
-    
     {
       "Name": "schedtuneB",
       "Controller": "schedtune",
