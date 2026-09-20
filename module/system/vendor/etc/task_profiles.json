@@ -59,6 +59,11 @@
       "File": "schedtune.prefer_idle"
     },
     {
+      "Name": "FreezerState",
+      "Controller": "freezer",
+      "File": "frozen/freezer.state"
+    },
+    {
       "Name": "CgroupProcs",
       "Controller": "cgroup",
       "File": "cgroup.procs"
