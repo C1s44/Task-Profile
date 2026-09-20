@@ -22,15 +22,15 @@
     },
     {
       "Name": "MemSoftLimit",
-      "File": "memory.soft_limit_in_bytes",
-      "FileV2": "memory.low"
+      "Controller": "apps",
+      "File": "memory.low"
     },
     {
       "Name": "MemSwappiness",
       "Controller": "apps",
       "File": "memory.swap.max"
     },
-        {
+    {
       "Name": "MemStats",
       "Controller": "apps",
       "File": "memory.stat"
@@ -38,15 +38,13 @@
     {
       "Name": "MemLimit",
       "Controller": "apps",
-      "File": "memory.limit_in_bytes",
-      "FileV2": "memory.max"
+      "File": "memory.max"
     },
     {
       "Name": "MemCurrent",
       "Controller": "apps",
-      "FileV2": "memory.current"
+      "File": "memory.current"
     },
-    
     {
       "Name": "schedtuneB",
       "Controller": "schedtune",
@@ -62,7 +60,6 @@
       "Controller": "cgroup",
       "File": "cgroup.procs"
     }
-    
   ],
   
   "Profiles": [
@@ -79,7 +76,7 @@
         }
       ]
     },
-        {
+    {
       "Name": "NormalPerformance",
       "Actions": [
         {
@@ -105,7 +102,7 @@
         }
       ]
     },
-       {
+    {
       "Name": "ProcessCapacityHighWI",
       "Actions": [
         {
@@ -118,7 +115,6 @@
         }
       ]
     },
-    
     {
       "Name": "MaxPerformance",
       "Actions": [
@@ -144,9 +140,8 @@
           }
         }
       ]
-     },
-
-       {
+    },
+    {
       "Name": "VrKernelCapacity",
       "Actions": [
         {
@@ -237,7 +232,7 @@
         }
       ]
     },
-       {
+    {
       "Name": "ServicePerformance",
       "Actions": [
         {
@@ -302,8 +297,7 @@
         }
       ]
     },
-
-   {
+    {
       "Name": "LowIoPriority",
       "Actions": [
         {
@@ -316,7 +310,7 @@
         }
       ]
     },
-       {
+    {
       "Name": "HighIoPriority",
       "Actions": [
         {
@@ -329,8 +323,7 @@
         }
       ]
     },
-
-       {
+    {
       "Name": "ServiceCapacityLow",
       "Actions": [
         {
@@ -356,7 +349,6 @@
         }
       ]
     },
-
     {
       "Name": "CameraServiceCapacity",
       "Actions": [
@@ -370,7 +362,7 @@
         }
       ]
     },
-         {
+    {
       "Name": "LowMemoryUsage",
       "Actions": [
         {
@@ -391,7 +383,7 @@
         }
       ]
     },
-   {
+    {
       "Name": "HighMemoryUsage",
       "Actions": [
         {
@@ -412,7 +404,7 @@
         }
       ]
     },
-       {
+    {
       "Name": "Dex2oatPerformance",
       "Actions": [
         {
@@ -449,7 +441,7 @@
         }
       ]
     }
- ],
+  ],
   
   "AggregateProfiles": [
     {
@@ -461,7 +453,7 @@
       "Profiles": [ "HighEnergySaving", "ServiceCapacityRestricted", "LowIoPriority", "TimerSlackHigh" ]
     },
     {
-          "Name": "SCHED_SP_FOREGROUND",
+      "Name": "SCHED_SP_FOREGROUND",
       "Profiles": [ "HighPerformance", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
@@ -517,5 +509,4 @@
       "Profiles": [ "ServiceCapacityLow", "LowIoPriority", "HighEnergySaving" ]
     }
   ]
-    
-  }
+}
