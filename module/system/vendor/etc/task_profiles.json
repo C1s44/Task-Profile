@@ -27,9 +27,27 @@
     },
     {
       "Name": "MemSwappiness",
-      "Controller": "memory",
+      "Controller": "system",
       "File": "memory.swap.max"
     },
+        {
+      "Name": "MemStats",
+      "Controller": "memory",
+      "File": "memory.stat"
+    },
+    {
+      "Name": "MemLimit",
+      "Controller": "memory",
+      "File": "memory.limit_in_bytes",
+      "FileV2": "memory.max"
+    },
+    {
+      "Name": "MemSwapCurrent",
+      "Controller": "system",
+      "File": "memory.limit_in_bytes",
+      "FileV2": "memory.swap.current"
+    },
+    
     {
       "Name": "schedtuneB",
       "Controller": "schedtune",
@@ -87,7 +105,7 @@
           }
         }
       ]
-    },
+    }, 
         {
       "Name": "NormalPerformance",
       "Actions": [
