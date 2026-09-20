@@ -21,46 +21,41 @@
       "File": "top-app/cpus"
     },
     {
-      "Name": "memory",
-      "Controller": "system"
+      "Name": "MemSoftLimit",
+      "File": "memory.soft_limit_in_bytes",
       "FileV2": "memory.low"
     },
     {
       "Name": "MemSwappiness",
-      "Controller": "system",
+      "Controller": "apps",
       "File": "memory.swap.max"
     },
         {
       "Name": "MemStats",
-      "Controller": "system",
+      "Controller": "apps",
       "File": "memory.stat"
     },
     {
       "Name": "MemLimit",
-      "Controller": "system",
+      "Controller": "apps",
       "File": "memory.limit_in_bytes",
       "FileV2": "memory.max"
     },
     {
-      "Name": "MemSwapCurrent",
-      "Controller": "system",
-      "File": "memory.limit_in_bytes",
+      "Name": "MemCurrent",
+      "Controller": "apps",
       "FileV2": "memory.current"
     },
+    
     {
       "Name": "schedtuneB",
       "Controller": "schedtune",
       "File": "schedtune.boost"
     },
     {
-      "Name": "STuneIdle",
+      "Name": "PreferIdleSet",
       "Controller": "schedtune",
       "File": "schedtune.prefer_idle"
-    },
-    {
-      "Name": "FreezerState",
-      "Controller": "freezer",
-      "File": "frozen/freezer.state"
     },
     {
       "Name": "CgroupProcs",
@@ -84,32 +79,6 @@
         }
       ]
     },
-        {
-      "Name": "Frozen",
-      "Actions": [
-        {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "FreezerState",
-            "Value": "1"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "Unfrozen",
-      "Actions": [
-        {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "FreezerState",
-            "Value": "0"
-          }
-        }
-      ]
-    }, 
         {
       "Name": "NormalPerformance",
       "Actions": [
